@@ -2,7 +2,7 @@ package com.wfghc.viacepapp.domain.usecase
 
 import com.wfghc.viacepapp.data.mapper.toDomain
 import com.wfghc.viacepapp.domain.model.Address
-import com.wfghc.viacepapp.domain.repository.AddressRepository
+import com.wfghc.viacepapp.domain.api.repository.AddressRepository
 import javax.inject.Inject
 
 class GetAddressUseCase @Inject constructor(
