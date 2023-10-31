@@ -1,8 +1,11 @@
-package com.wfghc.viacepapp
+package com.wfghc.viacepapp.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.wfghc.viacepapp.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
