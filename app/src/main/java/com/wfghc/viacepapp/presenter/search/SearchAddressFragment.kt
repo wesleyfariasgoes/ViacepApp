@@ -5,15 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.viacep.util.Constants
-import com.example.viacep.util.Constants.ADDRESS_BUNDLE_KEY
-import com.example.viacep.util.Constants.REQUEST_KEY
 import com.example.viacep.util.hideKeyboard
 import com.wfghc.viacepapp.R
 import com.wfghc.viacepapp.databinding.FragmentSearchAddressBinding
@@ -105,9 +101,7 @@ class SearchAddressFragment : Fragment() {
 
                 is StateView.Error -> {
                     Toast.makeText(
-                        requireContext(),
-                        "Erro ao salvar o endereço",
-                        Toast.LENGTH_SHORT
+                        requireContext(), "Erro ao salvar o endereço", Toast.LENGTH_SHORT
                     ).show()
                 }
             }

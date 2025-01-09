@@ -6,7 +6,7 @@ import retrofit2.http.Path
 
 interface CepApi {
 
-    @GET("{cep}/json")
+    @GET("{cep}/json/")
     suspend fun getAddress(
         @Path("cep")cep: String
     ): AddressResponse
