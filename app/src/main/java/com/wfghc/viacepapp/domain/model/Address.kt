@@ -16,7 +16,18 @@ data class Address(
 ): Parcelable {
 
     fun getFullAddress(): String {
-        return "$logradouro - $bairro\n$localidade/$uf - $cep"
+        return buildString {
+            append("$logradouro - $bairro")
+            appendLine()
+            append("$localidade/$uf - $cep")
+            if (!complemento.isNullOrBlank()) { // Verifica se o complemento não é nulo nem está em branco
+                appendLine()
+                append(complemento)
+            } else {
+                appendLine()
+                append("Complemento não informado")
+            }
+        }
     }
 }
 
