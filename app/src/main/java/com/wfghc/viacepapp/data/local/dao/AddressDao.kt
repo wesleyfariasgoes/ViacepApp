@@ -16,14 +16,14 @@ interface AddressDao {
     fun getAllAddress(): Flow<List<AddressEntity>>
 
     @Query("SELECT * FROM address WHERE id = :id")
-    fun getAddressByIds(id: Long): AddressEntity?
+    suspend fun getAddressByIds(id: Long): AddressEntity?
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertAddress(addressEntity: AddressEntity): Long
+    suspend fun insertAddress(addressEntity: AddressEntity): Long
 
     @Update
-    fun updateAddress(addressEntity: AddressEntity)
+    suspend fun updateAddress(addressEntity: AddressEntity)
 
     @Delete
-    fun deleteAddress(addressEntity: AddressEntity)
+    suspend fun deleteAddress(addressEntity: AddressEntity)
 }

@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
+    android:id="@+id/container_address"
     android:outlineSpotShadowColor="@color/color_primary"
     app:cardCornerRadius="8dp"
     app:cardElevation="10dp">

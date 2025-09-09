@@ -10,6 +10,8 @@ import com.wfghc.viacepapp.domain.model.Address
 
 class AddressAdapter: ListAdapter<Address, AddressAdapter.ViewHolder>(DIF_CALLBACK) {
 
+    var addressSelected: (Address) -> Unit = {}
+
     companion object {
         private val DIF_CALLBACK = object : DiffUtil.ItemCallback<Address>() {
             override fun areItemsTheSame(
@@ -23,7 +25,7 @@ class AddressAdapter: ListAdapter<Address, AddressAdapter.ViewHolder>(DIF_CALLBA
                 oldItem: Address,
                 newItem: Address
             ): Boolean {
-                return oldItem == newItem
+                return newItem == oldItem
             }
 
         }
@@ -42,6 +44,10 @@ class AddressAdapter: ListAdapter<Address, AddressAdapter.ViewHolder>(DIF_CALLBA
         val address = getItem(position)
         holder.binding.textAddress.text = address.getFullAddress()
         holder.binding.viewFlipper.displayedChild = 1
+        holder.binding.containerAddress.setOnClickListener {
+            addressSelected(address)
+        }
+
     }
 
     inner class ViewHolder(val binding: ItemAddressBinding): RecyclerView.ViewHolder(binding.root)
