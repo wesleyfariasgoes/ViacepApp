@@ -20,7 +20,7 @@ class SearchViewModel @Inject constructor(
     fun getAddress(cep: String) = liveData(Dispatchers.IO) {
         try {
             emit(StateView.Loading())
-            val address = getAddressUseCase(cep)
+            val address = getAddressUseCase.invoke(cep)
             emit(StateView.Success(address))
         } catch (e: HttpException) {
             e.printStackTrace()
@@ -34,7 +34,7 @@ class SearchViewModel @Inject constructor(
     fun insertAddress(address: Address) = liveData(Dispatchers.IO) {
         try {
             emit(StateView.Loading())
-            val id = insertAddressUseCase(address)
+            val id = insertAddressUseCase.invoke(address)
             emit(StateView.Success(id))
         } catch (e: Exception) {
             e.printStackTrace()
