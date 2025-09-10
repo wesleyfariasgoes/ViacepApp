@@ -60,11 +60,7 @@ class ListAddressFragment : Fragment() {
                 titleButton = R.string.text_button_dialog_confirm_delete_address,
                 onClick = {
                     viewModel.deleteAddress(address)
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.text_message_dialog_success_delete_address,
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(requireContext(), R.string.text_message_dialog_success_delete_address, Toast.LENGTH_SHORT).show()
                 }
             )
         }
@@ -79,10 +75,9 @@ class ListAddressFragment : Fragment() {
         val dialog = android.app.AlertDialog.Builder(requireContext())
         dialog.setTitle(titleDialog ?: R.string.text_title_dialog)
         dialog.setMessage(message)
-        dialog.setPositiveButton(
-            titleButton ?: R.string.text_button_dialog
-        ) { dialog, _ -> onClick(); dialog.dismiss() }
+        dialog.setPositiveButton(titleButton ?: R.string.text_button_dialog) { dialog, _ -> onClick(); dialog.dismiss()}
         dialog.show()
+        dialog.setNegativeButton(R.string.text_button_dialog) { dialog, _ -> dialog.dismiss()}
     }
 
     private fun initRecycler() {
